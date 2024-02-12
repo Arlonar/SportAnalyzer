@@ -12,36 +12,16 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 
     QObject::connect(get_matches_btn, SIGNAL(clicked()), this, SLOT(get_matches_btn_click()));
     QObject::connect(add_match_btn, SIGNAL(clicked()), this, SLOT(add_match_btn_click()));
-
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("C:\\Users\\Artem\\Documents\\SportAnalyzer\\data.sqlite");
-    if (!db.open())
-    {
-        qDebug() << db.lastError() << endl;
-    }
-    else
-    {
-        qDebug() << "Connection to Database successful" << endl;
-    }
-}
-
-MainWindow::~MainWindow()
-{
-    db.close();
 }
 
 void MainWindow::get_matches_btn_click()
 {
-    QSqlQuery query("SELECT * FROM matches");
-    if (!query.exec())
-    {
-        qDebug() << db.lastError() << endl;
-    }
+    auto matches_info = Database::fetchall("SELECT * FROM matches");
     QString result;
-    while (query.next())
+    for (int i = 0; i < matches_info.size(); ++i)
     {
-        QString match_name = query.value(query.record().indexOf("match_name")).toString();
-        QString tournament_name = query.value(query.record().indexOf("tournament_name")).toString();
+        QString match_name = matches_info[i]["match_name"];
+        QString tournament_name = matches_info[i]["tournament_name"];
         result += match_name + " " + tournament_name + "\n";
     }
     QMessageBox::question(this, "test", result, QMessageBox::Ok);
@@ -49,5 +29,8 @@ void MainWindow::get_matches_btn_click()
 
 void MainWindow::add_match_btn_click()
 {
-    QMessageBox::question(this, "test", "test", QMessageBox::Ok);
+    QWidget* add_match;
+    add_match = new AddMatch();
+    add_match->show();
+    // QMessageBox::question(this, "test", "test", QMessageBox::Ok);
 }

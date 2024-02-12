@@ -8,10 +8,17 @@ greaterThan(QT_MAJOR_VERSION, 4):QT += widgets
 
 SOURCES += \
     MainWindow.cpp \
+    add_match.cpp \
+    database.cpp \
     main.cpp
 
 HEADERS += \
-    MainWindow.h
+    MainWindow.h \
+    add_match.h \
+    database.h
 
 DISTFILES += \
-    data.db
+    data.sqlite
+
+FORMS += \
+    add_match.ui

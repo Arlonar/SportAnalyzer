@@ -6,18 +6,18 @@
 #include <QtSql>
 #include <QMessageBox>
 
+#include "add_match.h"
+#include "database.h"
+
 class MainWindow : public QWidget
 {
     Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
 
 private:
     QPushButton *get_matches_btn;
     QPushButton *add_match_btn;
-
-    QSqlDatabase db;
 
 signals:
 
