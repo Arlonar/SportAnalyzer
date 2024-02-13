@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>745</width>
-    <height>511</height>
+    <width>800</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="baseSize">
@@ -23,23 +23,39 @@
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>20</y>
-     <width>181</width>
-     <height>31</height>
+     <y>10</y>
+     <width>451</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="QLabel" name="match_name_label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>30</y>
-     <width>81</width>
-     <height>16</height>
+     <x>70</x>
+     <y>20</y>
+     <width>181</width>
+     <height>21</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
    <property name="autoFillBackground">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Название матча</string>
@@ -50,19 +66,29 @@
     <rect>
      <x>270</x>
      <y>70</y>
-     <width>181</width>
-     <height>31</height>
+     <width>451</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="QLabel" name="tournament_name_label">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>80</y>
-     <width>101</width>
-     <height>16</height>
+     <x>50</x>
+     <y>70</y>
+     <width>201</width>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
@@ -76,9 +102,14 @@
     <rect>
      <x>300</x>
      <y>130</y>
-     <width>121</width>
+     <width>221</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Добавить матч</string>
@@ -87,27 +118,106 @@
   <widget class="QTableView" name="techincs_table">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>190</y>
-     <width>256</width>
-     <height>192</height>
+     <x>30</x>
+     <y>220</y>
+     <width>411</width>
+     <height>421</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
    </property>
    <attribute name="verticalHeaderVisible">
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QPushButton" name="add_technics_button">
+  <widget class="QPushButton" name="add_technic_button">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>410</y>
-     <width>121</width>
+     <x>510</x>
+     <y>450</y>
+     <width>221</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>Добавить приём</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="technic_name_label">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>340</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Техника</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="technics_combo_box">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>330</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="currentText">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="successful_check_box">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>390</y>
+     <width>171</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="text">
+    <string>Получилась? </string>
+   </property>
+   <property name="autoRepeat">
+    <bool>false</bool>
+   </property>
+   <property name="tristate">
+    <bool>false</bool>
    </property>
   </widget>
  </widget>

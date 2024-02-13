@@ -10,15 +10,18 @@ SOURCES += \
     MainWindow.cpp \
     add_match.cpp \
     database.cpp \
-    main.cpp
+    main.cpp \
+    statistic.cpp
 
 HEADERS += \
     MainWindow.h \
     add_match.h \
-    database.h
+    database.h \
+    statistic.h
 
 DISTFILES += \
     data.sqlite
 
 FORMS += \
-    add_match.ui
+    add_match.ui \
+    statistic.ui

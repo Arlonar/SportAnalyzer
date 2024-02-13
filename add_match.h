@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QMessageBox>
+#include <QTableView>
 
 #include "database.h"
 #include "ui_add_match.h"
@@ -16,9 +17,10 @@ public:
 private:
     Ui::AddMatchForm ui;
     int current_match_id = 0;
+    void set_technic_visible(bool visible);
 
 signals:
-public slots:
+private slots:
     void add_match_button_click();
     void add_technic_button_click();
 };

@@ -27,3 +27,11 @@ QList<QHash<QString, QString>> Database::fetchall(QString query_text)
     }
     return result;
 }
+
+QSqlQueryModel* Database::fetch_model(QString query_text)
+{
+    QSqlQuery query(query_text);
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
+    return model;
+}
