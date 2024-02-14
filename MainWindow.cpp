@@ -44,7 +44,9 @@ void MainWindow::add_match_button_click()
 
 void MainWindow::set_technics_button_click()
 {
-    QMessageBox::question(this, "test", "Comming soon", QMessageBox::Ok);
+    QWidget* add_technic;
+    add_technic = new AddTechnic();
+    add_technic->show();
 }
 
 void MainWindow::view_statistics_button_click()
