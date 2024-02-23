@@ -6,6 +6,8 @@ AddMatch::AddMatch(QWidget *parent) : QWidget(parent)
 
     set_technic_visible(false);
 
+    ui.techincs_table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
     auto technics = Database::fetchall("SELECT * FROM technics");
     for (const auto& technic: technics)
     {

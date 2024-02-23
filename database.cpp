@@ -35,3 +35,16 @@ QSqlQueryModel* Database::fetch_model(QString query_text)
     model->setQuery(query);
     return model;
 }
+
+QSqlTableModel* Database::fetch_table_model(QString table_name, QList<QString> columns)
+{
+    QSqlTableModel* model = new QSqlTableModel;
+    model->setTable(table_name);
+    model->select();
+    model->setEditStrategy(QSqlTableModel::OnFieldChange);
+    for (int i = 0; i < columns.size(); ++i)
+    {
+        model->setHeaderData(0, Qt::Horizontal, columns[i]);
+    }
+    return model;
+}
