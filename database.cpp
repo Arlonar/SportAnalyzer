@@ -11,9 +11,13 @@ bool Database::execute(QString query_text, QList<QString> args)
     return query.exec();
 }
 
-QList<QHash<QString, QString>> Database::fetchall(QString query_text)
+QList<QHash<QString, QString>> Database::fetchall(QString query_text, QList<QString> args)
 {
     QSqlQuery query(query_text);
+    for (int i = 0; i < args.size(); ++i)
+    {
+        query.bindValue(i, args[i]);
+    }
     QList<QHash<QString, QString>> result;
     while (query.next())
     {
@@ -36,15 +40,12 @@ QSqlQueryModel* Database::fetch_model(QString query_text)
     return model;
 }
 
-QSqlTableModel* Database::fetch_table_model(QString table_name, QList<QString> columns)
+QSqlTableModel* Database::fetch_table_model(QString table_name, QString filter)
 {
     QSqlTableModel* model = new QSqlTableModel;
     model->setTable(table_name);
+    model->setFilter(filter);
     model->select();
     model->setEditStrategy(QSqlTableModel::OnFieldChange);
-    for (int i = 0; i < columns.size(); ++i)
-    {
-        model->setHeaderData(0, Qt::Horizontal, columns[i]);
-    }
     return model;
 }

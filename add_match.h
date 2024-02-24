@@ -16,13 +16,18 @@ public:
 
 private:
     Ui::AddMatchForm ui;
+
     int current_match_id = 0;
-    void set_technic_visible(bool visible);
+    int current_game_id = 0;
+    int current_score_id = 0;
+    int current_element = 1;
 
 signals:
 private slots:
     void add_match_button_click();
-    void add_technic_button_click();
+    void add_game_button_click();
+    void add_score_button_click();
+    void add_element_button_click();
 };
 
 #endif // ADD_MATCH_H
