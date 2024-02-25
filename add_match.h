@@ -4,8 +4,8 @@
 #include <QWidget>
 #include <QMessageBox>
 #include <QTableView>
+#include <QtSql>
 
-#include "database.h"
 #include "ui_add_match.h"
 
 class AddMatch : public QWidget

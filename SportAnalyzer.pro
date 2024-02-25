@@ -10,7 +10,7 @@ SOURCES += \
     MainWindow.cpp \
     add_match.cpp \
     add_technic.cpp \
-    database.cpp \
+    change_database.cpp \
     main.cpp \
     statistic.cpp
 
@@ -18,7 +18,7 @@ HEADERS += \
     MainWindow.h \
     add_match.h \
     add_technic.h \
-    database.h \
+    change_database.h \
     statistic.h
 
 DISTFILES += \
@@ -27,4 +27,5 @@ DISTFILES += \
 FORMS += \
     add_match.ui \
     add_technic.ui \
+    change_database.ui \
     statistic.ui

@@ -6,7 +6,12 @@ AddTechnic::AddTechnic(QWidget *parent) : QWidget(parent)
     QObject::connect(ui.add_technic_button, SIGNAL(clicked()), this, SLOT(add_technic_button_click()));
     QObject::connect(ui.delete_technic_button, SIGNAL(clicked()), this, SLOT(delete_technic_button_click()));
 
-    ui.techincs_table->setModel(Database::fetch_table_model("technics"));
+    QSqlTableModel* model = new QSqlTableModel;
+    model->setTable("technics");
+    model->select();
+    model->setEditStrategy(QSqlTableModel::OnFieldChange);
+
+    ui.techincs_table->setModel(model);
     ui.techincs_table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 

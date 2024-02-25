@@ -1,23 +1,15 @@
 #include <QApplication>
 #include <QPushButton>
-
-#include <MainWindow.h>
 #include <QtSql>
+
+#include "change_database.h"
 
 int main(int argc, char **argv)
 {
     QApplication app (argc, argv);
 
-    QSqlDatabase db;
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("C:\\Users\\Artem\\Documents\\SportAnalyzer\\data.sqlite");
-    if (!db.open())
-    {
-        qDebug() << db.lastError() << endl;
-    }
-
-    MainWindow window;
-    window.show();
+    ChangeDatabase change_database(nullptr);
+    change_database.show();
 
     return app.exec();
 }

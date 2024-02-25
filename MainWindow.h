@@ -8,7 +8,6 @@
 
 #include "add_match.h"
 #include "add_technic.h"
-#include "database.h"
 
 class MainWindow : public QWidget
 {

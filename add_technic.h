@@ -3,8 +3,8 @@
 
 #include <QWidget>
 #include <QMessageBox>
+#include <QtSql>
 
-#include "database.h"
 #include "ui_add_technic.h"
 
 class AddTechnic : public QWidget

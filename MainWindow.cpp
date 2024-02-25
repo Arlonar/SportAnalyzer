@@ -24,13 +24,14 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 
 void MainWindow::get_matches_button_click()
 {
-    auto matches_info = Database::fetchall("SELECT * FROM matches");
+    QSqlQuery query("SELECT * FROM matches");
+
     QString result;
-    for (int i = 0; i < matches_info.size(); ++i)
+    while(query.next())
     {
-        QString match_name = matches_info[i]["match_name"];
-        QString tournament_name = matches_info[i]["tournament_name"];
-        result += QString::number(i + 1) + ". " + match_name + " " + tournament_name + "\n";
+        QString match_name = query.value(query.record().indexOf("match_name")).toString();
+        QString tournament_name = query.value(query.record().indexOf("tournament_name")).toString();
+        result += match_name + " " + tournament_name + "\n";
     }
     QMessageBox::question(this, "test", result, QMessageBox::Ok);
 }
