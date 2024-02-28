@@ -12,11 +12,15 @@ void ChangeDatabase::connect_database_button_click()
     if (ui.db_combo_box->currentText() == "SQLite")
     {
         db = new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"));
+#ifdef QT_DEBUG
         db->setDatabaseName("./data.sqlite");
+#else
+        db->setDatabaseName("data.sqlite");
+#endif
         if (!db->open())
         {
             QMessageBox::critical(nullptr, "Ошибка подключения", db->lastError().text());
-            qDebug() << db->lastError().text() << endl;
+            qDebug() << db->lastError().text();
             return;
         }
         QSqlQuery query;
@@ -66,7 +70,7 @@ void ChangeDatabase::connect_database_button_click()
         if (!db->open())
         {
             QMessageBox::critical(nullptr, "Ошибка подключения", db->lastError().text());
-            qDebug() << db->lastError().text() << endl;
+            qDebug() << db->lastError().text();
             return;
         }
         QSqlQuery query;
@@ -111,7 +115,7 @@ void ChangeDatabase::connect_database_button_click()
     this->close();
 }
 
-void ChangeDatabase::on_db_combo_box_currentIndexChanged(const QString &arg1)
+void ChangeDatabase::on_db_combo_box_currentTextChanged(const QString &arg1)
 {
     if (arg1 == "SQLite")
     {

@@ -19,7 +19,7 @@ private:
 private slots:
     void connect_database_button_click();
 
-    void on_db_combo_box_currentIndexChanged(const QString &arg1);
+    void on_db_combo_box_currentTextChanged(const QString &arg1);
 
 signals:
 

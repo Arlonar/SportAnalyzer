@@ -1,6 +1,6 @@
 TARGET = SportAnalyzer
 
-QT = core gui widgets sql
+QT = core gui widgets sql quick
 
 TEMPLATE = app
 
@@ -29,3 +29,6 @@ FORMS += \
     add_technic.ui \
     change_database.ui \
     statistic.ui
+
+RESOURCES += \
+    qml.qrc
